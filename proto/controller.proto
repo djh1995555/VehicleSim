@@ -1,0 +1,24 @@
+syntax = "proto2";
+
+message ControlCommand {
+    optional double target_torque = 1;
+    optional double target_acc = 2;
+    optional double target_front_angle = 3;
+    optional double target_steering_angle = 4;
+}
+
+message ControlDebug {
+    optional int32 nearest_point_id = 1;
+    optional double nearest_point_v = 2;
+    optional double nearest_point_acc = 3;
+    optional double nearest_point_heading = 4;
+    optional double nearest_point_curvature = 5;
+
+}
+
+message ControllerOutput {
+    optional ControlCommand control_cmd = 1;
+    optional ControlDebug control_debug = 2;
+    optional int32 controller_id = 3;
+    repeated int32 id = 4;
+}

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+message Point {
+    optional double x = 1;
+    optional double y = 2;
+    optional double heading = 3;
+    optional double v = 4;
+    optional double acc = 5;
+    optional double curvature = 6;
+}
+message Trajectory {
+    repeated Point trajectory_points = 1;
+    repeated double id = 2;
+}

@@ -1,0 +1,32 @@
+target_panels: {
+  speed: [
+    "vehicle_state:v",
+    "control_debug:nearest_point_v",
+  ],
+  acc: [
+    "vehicle_state:acc",
+    "control_cmd:target_acc",
+    "control_debug:nearest_point_acc",
+  ],
+  steering: [
+    "vehicle_state:front_angle",
+    "control_cmd:target_front_angle",
+  ],
+  heading: [
+    "vehicle_state:heading",
+    "control_debug:nearest_point_heading",
+  ],
+  heading_rate: [
+    "vehicle_state:heading_rate",
+  ],
+  pitch: [
+    "vehicle_state:pitch",
+  ],
+  curvature: [
+    "vehicle_state:curvature",
+    "control_debug:nearest_point_curvature",
+  ],
+  id: [
+    "control_debug:nearest_point_id",
+  ],
+}

@@ -1,0 +1,8 @@
+vehicle_param: {
+  wheel_base: 3.0,
+}
+
+buffer_config: {
+  acc_input: 0.5,
+  front_angle_input: 0.0
+}
