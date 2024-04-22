@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+enum LonCommandType {
+    ACC = 1;
+    TORQUE = 2;
+    BRAKE = 3;
+}
+
+enum LatCommandType {
+    FRONT_ANGLE = 1;
+    STEERING_WHEEL_ANGLE = 2;
+}
+
+enum TargetGear {
+    GEAR_CMD_R = 1;
+    GEAR_CMD_D = 2;
+}
+
+message ControlCommand {
+    optional LonCommandType lon_cmd_type = 1;
+    optional double target_torque = 2;
+    optional double target_brake = 3;
+    optional double target_acc = 4;
+    optional LatCommandType lat_cmd_type = 5;
+    optional double target_front_angle = 6;
+    optional double target_steering_angle = 7;
+    optional TargetGear target_gear = 8;
+}
+
+message ControlDebug {
+    optional int32 nearest_point_id = 1;
+    optional double nearest_point_v = 2;
+    optional double nearest_point_acc = 3;
+    optional double nearest_point_heading = 4;
+    optional double nearest_point_curvature = 5;
+    optional double v_error = 6;
+    optional double lat_error = 7;
+    optional double heading_error = 8;
+}
+
+message ControllerOutput {
+    optional ControlCommand control_cmd = 1;
+    optional ControlDebug control_debug = 2;
+    optional int32 controller_id = 3;
+    repeated int32 id = 4;
+}

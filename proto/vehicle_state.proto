@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+enum GearState {
+    GEAR_STATE_R = 1;
+    GEAR_STATE_D = 2;
+}
+
+message VehicleState {
+    optional double x = 1 [default = 0.0];
+    optional double y = 2 [default = 0.0];
+    optional double v = 3 [default = 0.0];
+    optional double acc = 4 [default = 0.0];
+    optional double jerk = 5 [default = 0.0];
+    optional double front_angle = 6 [default = 0.0];
+    optional double steering_wheel_angle = 7 [default = 0.0];
+    optional double heading = 8 [default = 0.0];
+    optional double heading_rate = 9 [default = 0.0];
+    optional double pitch = 10 [default = 0.0];
+    optional double curvature = 11 [default = 0.0];
+    optional GearState gear_state = 12 [default = GEAR_STATE_D];
+    optional double torque = 13 [default = 0.0];
+    optional double brake = 14 [default = 0.0];
+}

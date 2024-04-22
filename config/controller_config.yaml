@@ -1,0 +1,14 @@
+controller_config: {
+  lon_controller_type: "pid",
+  lat_controller_type: "pure_pursuit",
+  lon_cmd_type: "acc", # acc, torque
+  lat_cmd_type: "front_angle", # front_angle, steering_angle
+}
+PID_param: {
+  preview_time: 0.2,
+  propotional_gain: 0.5,
+}
+
+PP_param: {
+  preview_time: 1.0,
+}

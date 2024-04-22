@@ -1,0 +1,28 @@
+syntax = "proto2";
+import "vehicle_state.proto";
+
+message Point {
+    optional double x = 1;
+    optional double y = 2;
+    optional double heading = 3;
+    optional double v = 4;
+    optional double acc = 5;
+    optional double curvature = 6;
+    optional GearState gear_state = 7;
+}
+
+message TrajectorySegment {
+    repeated Point trajectory_points = 1;
+    optional int32 segment_id = 2;
+}
+
+enum TrajectoryType {
+    NOA = 1;
+    APA = 2;
+}
+
+message Trajectory {
+    optional TrajectoryType task_type = 1;
+    optional int32 segment_num = 2;
+    repeated TrajectorySegment trajectory_segments = 3;
+}
