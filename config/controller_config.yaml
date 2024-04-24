@@ -1,6 +1,6 @@
 controller_config: {
   lon_controller_type: "pid",
-  lat_controller_type: "pp", # pp, kls
+  lat_controller_type: "smc", # pp, kls, smc
   lon_cmd_type: "acc", # acc, torque
   lat_cmd_type: "front_angle", # front_angle, steering_angle
   stop_acc: 0.2,
@@ -22,4 +22,15 @@ KLS_param: {
   use_preview_curvature: False,
   k_heading: 1.5,
   k_lat: 0.1,
+}
+
+SMC_param: {
+  preview_time: 1.0,
+  use_preview_lat_err: False,
+  use_preview_heading_err: False,
+  use_preview_curvature: False,
+  eta_beta: 0.1,
+  epsilon_beta: 0.05,
+  eta_alpha: 0.1,
+  epsilon_alpha: 0.05,
 }

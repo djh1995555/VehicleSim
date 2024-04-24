@@ -9,7 +9,7 @@ from proto.controller_pb2 import *
 from controller.pid_controller import PIDController
 from controller.pure_pursuit_controller import PurePursuitController
 from controller.kls_controller import KLSController
-from dynamic_model.vehicle_dynamic_model import VehicleDynamicModel
+from controller.sliding_mode_controller import SMController
 from proto.vehicle_state_pb2 import *
 
 class VehicleController():
@@ -25,6 +25,8 @@ class VehicleController():
             self._lateral_controller = PurePursuitController(self._config['PP_param'], self._vehicle_model_config['vehicle_param'], simulator_config['sample_time'])
         elif(self._config['controller_config']['lat_controller_type'] == "kls"):
             self._lateral_controller = KLSController(self._config['KLS_param'], self._vehicle_model_config['vehicle_param'], simulator_config['sample_time'])
+        elif(self._config['controller_config']['lat_controller_type'] == "smc"):
+            self._lateral_controller = SMController(self._config['SMC_param'], self._vehicle_model_config['vehicle_param'], simulator_config['sample_time'])
         
         self._simulator_config = simulator_config
         self._cur_segment_id = 0

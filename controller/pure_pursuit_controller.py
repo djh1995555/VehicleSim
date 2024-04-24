@@ -2,6 +2,7 @@
 import math
 import numpy as np
 import pandas as pd
+from proto.controller_pb2 import *
 
 class PurePursuitController():
     def __init__(self, config, vehicle_param, sample_time):
@@ -19,4 +20,6 @@ class PurePursuitController():
         distance = math.hypot(dx,dy)
         alpha = math.atan2(dy, dx) - state.heading
         delta = math.atan2(2.0 * self._vehicle_param['wheel_base'] * math.sin(alpha) / distance, 1.0)
+
+        control_output.control_debug.lat_controller_type = PP
         return delta

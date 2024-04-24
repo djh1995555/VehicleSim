@@ -2,7 +2,7 @@
 import math
 import numpy as np
 import pandas as pd
-
+from proto.controller_pb2 import *
 class PIDController():
     def __init__(self, config, vehicle_param,sample_time):
         self._config = config
@@ -15,4 +15,6 @@ class PIDController():
         preview_point = trajectory.trajectory_points[preview_id]
         current_v = state.v
         error = preview_point.v - current_v
+
+        control_output.control_debug.lon_controller_type = PID
         return error * self._config['propotional_gain']

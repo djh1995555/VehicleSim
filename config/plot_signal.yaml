@@ -6,15 +6,15 @@ target_panels: {
   curvature: [
     "vehicle_state:curvature",
     "control_debug:nearest_point_curvature",
-    "control_debug:kls_yaw_contribution",
-    "control_debug:kls_lat_contribution",
-    "control_debug:kls_feedforward_kappa",
-    "control_debug:kls_feedback_kappa",
-    "control_debug:kls_control_kappa",
+    "control_debug:yaw_contribution",
+    "control_debug:lat_contribution",
+    "control_debug:feedforward_kappa",
+    "control_debug:feedback_kappa",
+    "control_debug:control_kappa",
   ],
   lat_error: [
     "control_debug:lat_error",
-    "control_debug:kls_lat_error",
+    "control_debug:control_lat_error",
   ],
   heading: [
     "vehicle_state:heading",
@@ -22,7 +22,7 @@ target_panels: {
   ],
   heading_error: [
     "control_debug:heading_error",
-    "control_debug:kls_heading_error",
+    "control_debug:control_heading_error",
   ],
   speed: [
     "vehicle_state:v",
@@ -71,5 +71,10 @@ target_panels: {
   ],
   segment_id: [
     "trajectory:segment_id",
+  ],
+
+  controller_type: [
+    "control_debug:lon_controller_type",
+    "control_debug:lat_controller_type",
   ],
 }

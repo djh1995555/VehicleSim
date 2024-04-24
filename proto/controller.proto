@@ -16,6 +16,16 @@ enum TargetGear {
     GEAR_CMD_D = 2;
 }
 
+enum LatControllerType {
+    PP = 1;
+    KLS = 2;
+    SMC = 3;
+}
+
+enum LONControllerType {
+    PID = 1;
+}
+
 message ControlCommand {
     optional LonCommandType lon_cmd_type = 1;
     optional double target_torque = 2;
@@ -38,15 +48,18 @@ message ControlDebug {
     optional double heading_error = 8;
     optional double stop_distance = 9;
     optional bool is_stop_stage = 10;
-    optional double kls_lat_error = 11;
-    optional double kls_heading_error = 12;
-    optional double kls_yaw_contribution = 13;
-    optional double kls_lat_contribution = 14;
-    optional double kls_feedforward_kappa = 15;
-    optional double kls_feedback_kappa = 16;
-    optional double kls_control_kappa = 17;
     optional double stop_distance_threshold = 18;
     optional bool get_new_segment = 19;
+    optional double control_lat_error = 20;
+    optional double control_heading_error = 21;
+    optional double feedforward_kappa = 22;
+    optional double feedback_kappa = 23;
+    optional double control_kappa = 24;
+    optional LONControllerType lon_controller_type = 25;
+    optional LatControllerType lat_controller_type = 26;
+
+    optional double yaw_contribution = 101;
+    optional double lat_contribution = 102;
 }
 
 message ControllerOutput {

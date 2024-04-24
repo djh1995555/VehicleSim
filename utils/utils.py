@@ -13,3 +13,6 @@ def normalize_angle(angle):
     while angle < -math.pi:
         angle += 2 * math.pi
     return angle
+
+def sgn(x, epsilon):
+    return x / (math.fabs(x)+epsilon)
