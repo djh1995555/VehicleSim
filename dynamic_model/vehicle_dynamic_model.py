@@ -89,7 +89,7 @@ class VehicleDynamicModel(object):
             valid_acc = self.compute_acc_from_brake(valid_brake)
             
         self._vehicle_state.v += valid_acc * self._sample_time
-        self._vehicle_state.v = min(30,self._vehicle_state.v)
+        self._vehicle_state.v = max(min(30,self._vehicle_state.v),0.0)
         self._vehicle_state.acc = valid_acc
 
     def update_lateral_state(self, control_cmd):

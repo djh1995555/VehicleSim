@@ -36,6 +36,17 @@ message ControlDebug {
     optional double v_error = 6;
     optional double lat_error = 7;
     optional double heading_error = 8;
+    optional double stop_distance = 9;
+    optional bool is_stop_stage = 10;
+    optional double kls_lat_error = 11;
+    optional double kls_heading_error = 12;
+    optional double kls_yaw_contribution = 13;
+    optional double kls_lat_contribution = 14;
+    optional double kls_feedforward_kappa = 15;
+    optional double kls_feedback_kappa = 16;
+    optional double kls_control_kappa = 17;
+    optional double stop_distance_threshold = 18;
+    optional bool get_new_segment = 19;
 }
 
 message ControllerOutput {

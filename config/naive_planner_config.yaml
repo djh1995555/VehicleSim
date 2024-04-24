@@ -7,6 +7,6 @@ noa_trajectory: {
 apa_trajectory: {
   init_v: 1.0,
   init_pitch: 0.0,
-  segment_num : 3,
-  arc_ratio: 0.125,
+  segment_num : 6,
+  arc_ratio: 0.25,
 }

@@ -1,14 +1,4 @@
 target_panels: {
-  lat_error: [
-    "control_debug:lat_error",
-  ],
-  heading: [
-    "vehicle_state:heading",
-    "control_debug:nearest_point_heading",
-  ],
-  heading_error: [
-    "control_debug:heading_error",
-  ],
   front_angle: [
     "vehicle_state:front_angle",
     "control_cmd:target_front_angle",
@@ -16,6 +6,38 @@ target_panels: {
   curvature: [
     "vehicle_state:curvature",
     "control_debug:nearest_point_curvature",
+    "control_debug:kls_yaw_contribution",
+    "control_debug:kls_lat_contribution",
+    "control_debug:kls_feedforward_kappa",
+    "control_debug:kls_feedback_kappa",
+    "control_debug:kls_control_kappa",
+  ],
+  lat_error: [
+    "control_debug:lat_error",
+    "control_debug:kls_lat_error",
+  ],
+  heading: [
+    "vehicle_state:heading",
+    "control_debug:nearest_point_heading",
+  ],
+  heading_error: [
+    "control_debug:heading_error",
+    "control_debug:kls_heading_error",
+  ],
+  speed: [
+    "vehicle_state:v",
+    "control_debug:nearest_point_v",
+  ],
+  distance: [
+    "control_debug:stop_distance",
+    "control_debug:stop_distance_threshold",
+  ],
+  flag: [
+    "control_debug:is_stop_stage",
+    "control_debug:get_new_segment",
+  ],
+  id: [
+    "control_debug:nearest_point_id",
   ],
   v_error: [
     "control_debug:v_error",
@@ -23,10 +45,6 @@ target_panels: {
   steering: [
     "vehicle_state:steering_wheel_angle",
     "control_cmd:target_steering_angle",
-  ],
-  speed: [
-    "vehicle_state:v",
-    "control_debug:nearest_point_v",
   ],
   acc: [
     "vehicle_state:acc",

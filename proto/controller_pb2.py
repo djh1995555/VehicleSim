@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x63ontroller.proto\"\xfc\x01\n\x0e\x43ontrolCommand\x12%\n\x0clon_cmd_type\x18\x01 \x01(\x0e\x32\x0f.LonCommandType\x12\x15\n\rtarget_torque\x18\x02 \x01(\x01\x12\x14\n\x0ctarget_brake\x18\x03 \x01(\x01\x12\x12\n\ntarget_acc\x18\x04 \x01(\x01\x12%\n\x0clat_cmd_type\x18\x05 \x01(\x0e\x32\x0f.LatCommandType\x12\x1a\n\x12target_front_angle\x18\x06 \x01(\x01\x12\x1d\n\x15target_steering_angle\x18\x07 \x01(\x01\x12 \n\x0btarget_gear\x18\x08 \x01(\x0e\x32\x0b.TargetGear\"\xd7\x01\n\x0c\x43ontrolDebug\x12\x18\n\x10nearest_point_id\x18\x01 \x01(\x05\x12\x17\n\x0fnearest_point_v\x18\x02 \x01(\x01\x12\x19\n\x11nearest_point_acc\x18\x03 \x01(\x01\x12\x1d\n\x15nearest_point_heading\x18\x04 \x01(\x01\x12\x1f\n\x17nearest_point_curvature\x18\x05 \x01(\x01\x12\x0f\n\x07v_error\x18\x06 \x01(\x01\x12\x11\n\tlat_error\x18\x07 \x01(\x01\x12\x15\n\rheading_error\x18\x08 \x01(\x01\"\x81\x01\n\x10\x43ontrollerOutput\x12$\n\x0b\x63ontrol_cmd\x18\x01 \x01(\x0b\x32\x0f.ControlCommand\x12$\n\rcontrol_debug\x18\x02 \x01(\x0b\x32\r.ControlDebug\x12\x15\n\rcontroller_id\x18\x03 \x01(\x05\x12\n\n\x02id\x18\x04 \x03(\x05*0\n\x0eLonCommandType\x12\x07\n\x03\x41\x43\x43\x10\x01\x12\n\n\x06TORQUE\x10\x02\x12\t\n\x05\x42RAKE\x10\x03*;\n\x0eLatCommandType\x12\x0f\n\x0b\x46RONT_ANGLE\x10\x01\x12\x18\n\x14STEERING_WHEEL_ANGLE\x10\x02*,\n\nTargetGear\x12\x0e\n\nGEAR_CMD_R\x10\x01\x12\x0e\n\nGEAR_CMD_D\x10\x02')
+  serialized_pb=_b('\n\x10\x63ontroller.proto\"\xfc\x01\n\x0e\x43ontrolCommand\x12%\n\x0clon_cmd_type\x18\x01 \x01(\x0e\x32\x0f.LonCommandType\x12\x15\n\rtarget_torque\x18\x02 \x01(\x01\x12\x14\n\x0ctarget_brake\x18\x03 \x01(\x01\x12\x12\n\ntarget_acc\x18\x04 \x01(\x01\x12%\n\x0clat_cmd_type\x18\x05 \x01(\x0e\x32\x0f.LatCommandType\x12\x1a\n\x12target_front_angle\x18\x06 \x01(\x01\x12\x1d\n\x15target_steering_angle\x18\x07 \x01(\x01\x12 \n\x0btarget_gear\x18\x08 \x01(\x0e\x32\x0b.TargetGear\"\x83\x04\n\x0c\x43ontrolDebug\x12\x18\n\x10nearest_point_id\x18\x01 \x01(\x05\x12\x17\n\x0fnearest_point_v\x18\x02 \x01(\x01\x12\x19\n\x11nearest_point_acc\x18\x03 \x01(\x01\x12\x1d\n\x15nearest_point_heading\x18\x04 \x01(\x01\x12\x1f\n\x17nearest_point_curvature\x18\x05 \x01(\x01\x12\x0f\n\x07v_error\x18\x06 \x01(\x01\x12\x11\n\tlat_error\x18\x07 \x01(\x01\x12\x15\n\rheading_error\x18\x08 \x01(\x01\x12\x15\n\rstop_distance\x18\t \x01(\x01\x12\x15\n\ris_stop_stage\x18\n \x01(\x08\x12\x15\n\rkls_lat_error\x18\x0b \x01(\x01\x12\x19\n\x11kls_heading_error\x18\x0c \x01(\x01\x12\x1c\n\x14kls_yaw_contribution\x18\r \x01(\x01\x12\x1c\n\x14kls_lat_contribution\x18\x0e \x01(\x01\x12\x1d\n\x15kls_feedforward_kappa\x18\x0f \x01(\x01\x12\x1a\n\x12kls_feedback_kappa\x18\x10 \x01(\x01\x12\x19\n\x11kls_control_kappa\x18\x11 \x01(\x01\x12\x1f\n\x17stop_distance_threshold\x18\x12 \x01(\x01\x12\x17\n\x0fget_new_segment\x18\x13 \x01(\x08\"\x81\x01\n\x10\x43ontrollerOutput\x12$\n\x0b\x63ontrol_cmd\x18\x01 \x01(\x0b\x32\x0f.ControlCommand\x12$\n\rcontrol_debug\x18\x02 \x01(\x0b\x32\r.ControlDebug\x12\x15\n\rcontroller_id\x18\x03 \x01(\x05\x12\n\n\x02id\x18\x04 \x03(\x05*0\n\x0eLonCommandType\x12\x07\n\x03\x41\x43\x43\x10\x01\x12\n\n\x06TORQUE\x10\x02\x12\t\n\x05\x42RAKE\x10\x03*;\n\x0eLatCommandType\x12\x0f\n\x0b\x46RONT_ANGLE\x10\x01\x12\x18\n\x14STEERING_WHEEL_ANGLE\x10\x02*,\n\nTargetGear\x12\x0e\n\nGEAR_CMD_R\x10\x01\x12\x0e\n\nGEAR_CMD_D\x10\x02')
 )
 
 _LONCOMMANDTYPE = _descriptor.EnumDescriptor(
@@ -44,8 +44,8 @@ _LONCOMMANDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=625,
-  serialized_end=673,
+  serialized_start=925,
+  serialized_end=973,
 )
 _sym_db.RegisterEnumDescriptor(_LONCOMMANDTYPE)
 
@@ -67,8 +67,8 @@ _LATCOMMANDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=675,
-  serialized_end=734,
+  serialized_start=975,
+  serialized_end=1034,
 )
 _sym_db.RegisterEnumDescriptor(_LATCOMMANDTYPE)
 
@@ -90,8 +90,8 @@ _TARGETGEAR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=736,
-  serialized_end=780,
+  serialized_start=1036,
+  serialized_end=1080,
 )
 _sym_db.RegisterEnumDescriptor(_TARGETGEAR)
 
@@ -249,6 +249,83 @@ _CONTROLDEBUG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stop_distance', full_name='ControlDebug.stop_distance', index=8,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_stop_stage', full_name='ControlDebug.is_stop_stage', index=9,
+      number=10, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_lat_error', full_name='ControlDebug.kls_lat_error', index=10,
+      number=11, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_heading_error', full_name='ControlDebug.kls_heading_error', index=11,
+      number=12, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_yaw_contribution', full_name='ControlDebug.kls_yaw_contribution', index=12,
+      number=13, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_lat_contribution', full_name='ControlDebug.kls_lat_contribution', index=13,
+      number=14, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_feedforward_kappa', full_name='ControlDebug.kls_feedforward_kappa', index=14,
+      number=15, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_feedback_kappa', full_name='ControlDebug.kls_feedback_kappa', index=15,
+      number=16, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='kls_control_kappa', full_name='ControlDebug.kls_control_kappa', index=16,
+      number=17, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='stop_distance_threshold', full_name='ControlDebug.stop_distance_threshold', index=17,
+      number=18, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='get_new_segment', full_name='ControlDebug.get_new_segment', index=18,
+      number=19, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -262,7 +339,7 @@ _CONTROLDEBUG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=276,
-  serialized_end=491,
+  serialized_end=791,
 )
 
 
@@ -313,8 +390,8 @@ _CONTROLLEROUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=623,
+  serialized_start=794,
+  serialized_end=923,
 )
 
 _CONTROLCOMMAND.fields_by_name['lon_cmd_type'].enum_type = _LONCOMMANDTYPE

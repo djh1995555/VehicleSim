@@ -4,11 +4,11 @@ naive_planner_config: config/naive_planner_config.yaml
 vehicle_model_config: config/vehicle_model_config.yaml
 vehicle_real_config: config/vehicle_real_config.yaml
 
-simulation_time: 300
+simulation_time: 1000
 sample_time: 0.05
 ref_length: 20
 
-task_type: 'noa'
-init_v: 1.0
+task_type: 'apa'
+init_v: 0.0
 init_pitch: 0.0
 

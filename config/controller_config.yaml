@@ -1,8 +1,10 @@
 controller_config: {
   lon_controller_type: "pid",
-  lat_controller_type: "pure_pursuit",
+  lat_controller_type: "pp", # pp, kls
   lon_cmd_type: "acc", # acc, torque
   lat_cmd_type: "front_angle", # front_angle, steering_angle
+  stop_acc: 0.2,
+  acc_response_delay: 0.5,
 }
 PID_param: {
   preview_time: 0.2,
@@ -11,4 +13,13 @@ PID_param: {
 
 PP_param: {
   preview_time: 1.0,
+}
+
+KLS_param: {
+  preview_time: 1.0,
+  use_preview_lat_err: False,
+  use_preview_heading_err: False,
+  use_preview_curvature: False,
+  k_heading: 1.5,
+  k_lat: 0.1,
 }

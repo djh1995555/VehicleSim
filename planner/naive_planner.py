@@ -4,10 +4,10 @@ import pandas as pd
 import math
 import yaml
 import os
+from utils.utils import *
 from proto.trajectory_pb2 import *
 from proto.vehicle_state_pb2 import *
 
-EPSILON = 0.01
 class KinematicDynamicModel(object):
     def __init__(self, simulator_config):
         config_filepath = os.path.join(simulator_config['root_dir'],simulator_config['vehicle_model_config'])
@@ -82,8 +82,18 @@ class NaivePlanner():
         dx = cur_end_point.x - state.x    
         dy = cur_end_point.y - state.y
         distance = math.hypot(dx,dy)  
+
+        cur_heading = state.heading
+        if(state.gear_state == GEAR_STATE_R):
+            cur_heading += math.pi
+        alpha = normalize_angle(math.atan2(dy, dx) - cur_heading)
+        # not reach, distance < 0
+        if(math.fabs(alpha) < math.pi / 2):
+            distance *= -1
+
         is_finish = False
-        if(distance < EPSILON):
+        reach_tolerance = -0.05
+        if(distance > reach_tolerance and state.v == 0):
             if(self._segment_id == self._trajectory.segment_num - 1):
                 is_finish = True
             else:

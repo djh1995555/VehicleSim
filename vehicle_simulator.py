@@ -48,72 +48,111 @@ class VehicleSimulator():
         self._data_selected = OrderedDict()
 
     def run(self):
-        for i in range(int(self._simulation_time/self._sample_time)):
+        is_finish = False
+        count = 0
+        while(not is_finish and count < int(self._simulation_time/self._sample_time)):
             controller_output = ControllerOutput()
             state = self._vehicle_dynamic_model.get_state()
             self._vehicle_state_history.append(copy.deepcopy(state))
             is_finish, trajectory_segment = self._navie_planner.get_segment(state)
             self._segment_history.append(trajectory_segment.segment_id)
-            if(is_finish):
-                print("simulation is finished!")
-                break
             self._vehicle_controller.compute_control_cmd(state, trajectory_segment, controller_output)
             self._controller_output_history.append(copy.deepcopy(controller_output))
             self._vehicle_dynamic_model.update(controller_output.control_cmd)
+            count += 1
+
+        if(count >=int(self._simulation_time/self._sample_time)):
+            print("running out of time!")
+        if(is_finish):
+            print("simulation is finished!")
 
     def plot_trajectory(self):
+        is_3d = False
         vehicle_x = []
         vehicle_y = []
-        curvature = []
+        vehicle_v = []
         for i in range(len(self._vehicle_state_history)):
             state = self._vehicle_state_history[i]
             vehicle_x.append(state.x)
             vehicle_y.append(state.y)
-            curvature.append(state.curvature) 
+            vehicle_v.append(state.v) 
+        
+        if(is_3d):
+            tracking_result_scatter = go.Scatter3d(
+                x = vehicle_x,
+                y = vehicle_y,
+                z = vehicle_v,
+                name = 'Vehicle Trajectory',
+                mode = 'lines',
+                marker = dict(
+                    size = 10,
+                    color = 'rgba(255, 0, 0, 0.8)'  # 红色轨迹
+                ),
+                line = dict(
+                    width = 2,
+                    color = 'rgba(255, 0, 0, 1)'  # 轨迹线的颜色
+                )
+            )
+        else:
+            tracking_result_scatter = go.Scatter(
+                x = vehicle_x,
+                y = vehicle_y,
+                name = 'Vehicle Trajectory',
+                mode = 'lines',
+                marker = dict(
+                    size = 10,
+                    color = 'rgba(255, 0, 0, 0.8)'  # 红色轨迹
+                ),
+                line = dict(
+                    width = 2,
+                    color = 'rgba(255, 0, 0, 1)'  # 轨迹线的颜色
+                )
+            )
 
         reference_x = []
         reference_y = []
-        reference_curvature = []
+        reference_v = []
 
         for trajectory_segment in self._trajectory.trajectory_segments:
             for trajectory_point in trajectory_segment.trajectory_points:
                 reference_x.append(trajectory_point.x)
                 reference_y.append(trajectory_point.y)
-                reference_curvature.append(trajectory_point.curvature)
+                reference_v.append(trajectory_point.v)
 
-
-        reference_scatter = go.Scatter3d(
-            x = reference_x,
-            y = reference_y,
-            z = reference_curvature,
-            name = 'Reference',
-            mode = 'lines',  # 使用线和标记表示轨迹
-            marker = dict(
-                size = 10,
-                color = 'rgba(0, 128, 255, 0.8)'  # 蓝色轨迹
-            ),
-            line = dict(
-                width = 2,
-                color = 'rgba(0, 128, 255, 1)'  # 轨迹线的颜色
+        if(is_3d):
+            reference_scatter = go.Scatter3d(
+                x = reference_x,
+                y = reference_y,
+                z = reference_v,
+                name = 'Reference',
+                mode = 'lines',  # 使用线和标记表示轨迹
+                marker = dict(
+                    size = 10,
+                    color = 'rgba(0, 128, 255, 0.8)'  # 蓝色轨迹
+                ),
+                line = dict(
+                    width = 2,
+                    color = 'rgba(0, 128, 255, 1)'  # 轨迹线的颜色
+                )
             )
-        )
+        else:
+            reference_scatter = go.Scatter(
+                x = reference_x,
+                y = reference_y,
+                name = 'Reference',
+                mode = 'lines',  # 使用线和标记表示轨迹
+                marker = dict(
+                    size = 10,
+                    color = 'rgba(0, 128, 255, 0.8)'  # 蓝色轨迹
+                ),
+                line = dict(
+                    width = 2,
+                    color = 'rgba(0, 128, 255, 1)'  # 轨迹线的颜色
+                )
+            )
         
 
-        tracking_result_scatter = go.Scatter3d(
-            x = vehicle_x,
-            y = vehicle_y,
-            z = curvature,
-            name = 'Vehicle Trajectory',
-            mode = 'lines',
-            marker = dict(
-                size = 10,
-                color = 'rgba(255, 0, 0, 0.8)'  # 红色轨迹
-            ),
-            line = dict(
-                width = 2,
-                color = 'rgba(255, 0, 0, 1)'  # 轨迹线的颜色
-            )
-        )
+        
 
         fig = go.Figure()
         fig.add_trace(reference_scatter)
